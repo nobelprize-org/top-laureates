@@ -1,0 +1,137 @@
+.filterable {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.toplist {
+    counter-reset: toplist-counter;
+}
+
+/* --- LIST ITEM ---
+*/
+.toplist .list-item {
+    position: relative;
+    padding: 4px 0 10px 0;
+    padding-left: 97px;
+    border-top: 1px solid #CECECE;
+    clear: both;
+    padding-top: 10px;
+    min-height: 85px;
+}
+/* List numbering */
+.toplist .list-item:before {
+    content: counter(toplist-counter);
+    counter-increment: toplist-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 32px;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.toplist .list-item .name {
+    font-size: 1.3em;
+    padding-top: 0;
+}
+
+.toplist .image {
+    position: absolute;
+    left: 40px;
+    width: 40px;
+}
+
+/* --- LOADING ---
+*/
+.toplist .loading-container {
+    display: none;
+}
+.toplist.loading .loading-container {
+    display: block;
+}
+
+.toplist .spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.toplist .spinner .dot1, 
+.toplist .spinner .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.toplist .spinner .dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/* --- SPARKLINE ---
+*/
+.toplist .list-item .popularity {
+    float: right;
+}
+.toplist .list-item .popularity .title {
+    font-size: 8px;
+    color: #939393;
+    display: block;
+    text-align: center;
+}
+
+.jqstooltip {
+    padding-left: 0; 
+}
+.tooltip-content {
+  color: #fff;
+  height: 25px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.toplist ul.list {
+  list-style-type: none;
+}
+.js .hideonjs {
+  display: none;
+}
+/* --- NO DATA MESSAGE ---
+  (when no laurates match query)
+*/
+.toplist.no-data .no-data-message {
+  display: block;
+}
